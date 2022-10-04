@@ -6,6 +6,9 @@
 * main
 * dev
 * 기능별! (페이지별) 
+
+* dev -> main 머지 후 main에서 버그 발생 시 로컬의 main에서 에러 수정 후 바로 main에 
+
 * jshim/main
 * yena/crag-list
 * yena/community
