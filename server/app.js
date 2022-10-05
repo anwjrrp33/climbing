@@ -15,9 +15,12 @@ sequelize.sync({ force: true }) // 서버 실행시마다 테이블을 재생성
     console.error(err);
   });
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-});
+
+
+ //모든 router 
+const mainRouter = require('./routes')
+ app.use('/', mainRouter)
+
 
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`)
