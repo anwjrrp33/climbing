@@ -1,5 +1,7 @@
+import { Crag } from 'components/organism/List/Crag';
+
 const CragList = () => {
-  return <div>암장 페이지!!</div>;
+  return <Crag />;
 };
 
 export default CragList;
