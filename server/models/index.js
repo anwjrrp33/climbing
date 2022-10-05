@@ -32,7 +32,7 @@ Object.keys(db).forEach(modelName => {
   }
 });
 
-db.User=require('./user')(sequelize,Sequelize);
+db.Mate = require('./mate')(sequelize, Sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
