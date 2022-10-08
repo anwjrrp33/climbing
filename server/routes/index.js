@@ -4,11 +4,11 @@ const router = require('express').Router();
 
 
 const homeRouter = require('./home')
-const communityRouter = require('./')
+const communityRouter = require('./mate')
 
 
 router.use('/',  homeRouter); //home 화면
-router.use('/mate', communityRouter); // 커뮤니티
+router.use('/', communityRouter); // 커뮤니티
 
  
 

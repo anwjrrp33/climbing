@@ -16,10 +16,11 @@ sequelize.sync({ force: true }) // 서버 실행시마다 테이블을 재생성
   });
 
 
+app.use(express.json());
 
- //모든 router 
+//모든 router 
 const mainRouter = require('./routes')
- app.use('/', mainRouter)
+app.use('/', mainRouter);
 
 
 app.listen(port, () => {
