@@ -1,6 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Main from 'components/page/main';
-import CragList from 'components/page/cragList';
+import CragList from 'components/page/cragList/List';
 import Community from 'components/page/community';
 
 export const Router = () => {

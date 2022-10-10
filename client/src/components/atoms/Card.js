@@ -3,7 +3,7 @@ export const Card = ({ cragInfo }) => {
 
   return (
     <div className='w-60 h-60 bg-yellow-100 rounded-md overflow-hidden drop-shadow-lg hover: cursor-pointer'>
-      <img className='w-60 h-40 ' src={`/images/image${id}.jpg`} alt='crag' />
+      <img className='w-60 h-40' src={`/images/image${id}.jpg`} alt='crag' />
       <div className='mt-2 mx-3'>
         <div>
           <div className='text-xs text-slate-600 uppercase font-bold tracking-wider'>
