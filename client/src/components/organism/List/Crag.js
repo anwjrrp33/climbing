@@ -6,11 +6,7 @@ export const CragList = () => {
     <div className='min-h-screen flex justify-center bg-slate-300'>
       <div className='flex flex-wrap mt-20 mx-20 gap-4'>
         {cragList.success &&
-          cragList.data.map((crag) => (
-            // <Link key={crag.id} to={`${crag.id}`}>
-            <Card key={crag.id} cragInfo={crag} />
-            // </Link>
-          ))}
+          cragList.data.map((crag) => <Card key={crag.id} cragInfo={crag} />)}
       </div>
     </div>
   );
