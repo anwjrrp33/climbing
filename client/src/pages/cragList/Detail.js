@@ -1,5 +1,12 @@
+import { Post } from 'components/atoms/Post';
+import { useEffect } from 'react';
+
 const CragDetail = () => {
-  return <div>crag 상세 페이지</div>;
+  useEffect(() => {
+    // const response =
+  }, []);
+
+  // return <Post postList={postList} />;
 };
 
 export default CragDetail;

@@ -1,7 +1,7 @@
-import { Crag } from 'components/organism/List/Crag';
+import { CragList } from 'components/organism/List/Crag';
 
-const CragList = () => {
-  return <Crag />;
+const CragListPage = () => {
+  return <CragList />;
 };
 
-export default CragList;
+export default CragListPage;
