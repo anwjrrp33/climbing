@@ -1,12 +1,31 @@
+import { useEffect, useState } from 'react';
+import { useLocation, useParams } from 'react-router-dom';
+import axios from 'axios';
+import { createBrowserHistory } from 'history';
 import { Post } from 'components/atoms/Post';
-import { useEffect } from 'react';
 
 const CragDetail = () => {
-  useEffect(() => {
-    // const response =
-  }, []);
+  // const { cragId } = useParams();
+  const location = useLocation();
+  const [post, setPost] = useState();
 
-  // return <Post postList={postList} />;
+  const { id, cragInfo } = location.state;
+
+  // useEffect(() => {
+  //   axios
+  //     .get() // 백엔드 url
+  //     .then(({ success, data }) => {
+  //       console.log(data);
+  //       if (success === true) {
+  //         console.log(data.list.filter(({ selectedId }) => selectedId === id));
+
+  //         setPost(data.list.filter(({ selectedId }) => selectedId === id)[0]);
+  //       }
+  //     })
+  //     .catch((err) => console.log(err));
+  // }, [id]);
+
+  return <Post post={cragInfo} />;
 };
 
 export default CragDetail;

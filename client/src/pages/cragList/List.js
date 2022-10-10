@@ -1,7 +1,11 @@
 import { CragList } from 'components/organism/List/Crag';
 
 const CragListPage = () => {
-  return <CragList />;
+  return (
+    <>
+      <CragList />
+    </>
+  );
 };
 
 export default CragListPage;
