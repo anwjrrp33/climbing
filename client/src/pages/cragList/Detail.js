@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { createBrowserHistory } from 'history';
 import { Post } from 'components/atoms/Post';
 
 const CragDetail = () => {
