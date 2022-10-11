@@ -1,26 +1,38 @@
-export const cragList = [
-  {
-    id: 1,
-    location: '서울시 마포구',
-    title: '암장1',
-    pricing: 50000,
-  },
-  {
-    id: 2,
-    location: '서울시 강서구',
-    title: '암장2',
-    pricing: 60000,
-  },
-  {
-    id: 3,
-    location: '서울시 서초구',
-    title: '암장3',
-    pricing: 70000,
-  },
-  {
-    id: 4,
-    location: '서울시 중구',
-    title: '암장4',
-    pricing: 80000,
-  },
-];
+export const cragList = {
+  success: true,
+  data: [
+    {
+      id: 1,
+      title: '김승욱클라이밍짐',
+      content: '서울특별시의 실내 암벽등반 체육관',
+      address: '서울특별시 마포구 신정동 96-32',
+      openTime: '10:00',
+      closeTime: '21:00',
+      price: 30000,
+      createdAt: '2018-10-13T00:00:00.000Z',
+      updatedAt: '2022-10-03T00:00:00.000Z',
+    },
+    {
+      id: 2,
+      title: '볼더프렌즈 클라이밍',
+      content: '서울특별시의 실내 암벽등반 체육관',
+      address: '서울특별시 마포구 홍익로 25',
+      openTime: '10:00',
+      closeTime: '22:00',
+      price: 15000,
+      createdAt: '2019-12-01T00:00:00.000Z',
+      updatedAt: '2022-11-11T00:00:00.000Z',
+    },
+    {
+      id: 3,
+      title: '더클라임 홍대점 THECLIMB HONGDAE, SEOUL',
+      content: '서울특별시의 실내 암벽등반 체육관',
+      address: '서울특별시 마포구 353-5 경남관광빌딩 2층',
+      openTime: '10:00',
+      closeTime: '19:00',
+      price: 20000,
+      createdAt: '2022-05-01T00:00:00.000Z',
+      updatedAt: '2022-11-12T00:00:00.000Z',
+    },
+  ],
+};
