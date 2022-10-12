@@ -1,7 +1,7 @@
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    var Users = sequelize.define("Users", {
+    return  sequelize.define("User", {
       id: {
         type: DataTypes.INTEGER,
         defaultValue: DataTypes.INTEGER,
@@ -35,5 +35,4 @@ module.exports = (sequelize, DataTypes) => {
       paranoid: true, // timestamps 가 활성화 되어야 사용 가능 > deleteAt 옵션 on
     });
   
-    return Users;
   };
