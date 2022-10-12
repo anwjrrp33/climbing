@@ -47,7 +47,45 @@ async function register(req, res, next) {
     return res.status(200).json({ success: true });
 }
 
+async function read(req, res, next) {
+    let id = req.params.id;
+
+    let mate = await Mate.findOne({
+        where: { id: id }
+    });
+
+    return res.status(200).json({ success: true, mate: mate });
+}
+
+async function modify(req, res, next) {
+    let id = req.params.id;
+
+    await Mate.update({
+        title: req.body.title,
+        content: req.body.content,
+        modifyDate: new Date(),
+        modifyId: req.body.modifyId
+    }, {
+        where: { id: id }
+    });
+
+    return res.status(200).json({ success: true });
+}
+
+async function remove(req, res, next) {
+    let id = req.params.id;
+
+    await Mate.destroy({
+        where: { id: id }
+    });
+
+    return res.status(200).json({ success: true });
+}
+
 module.exports = {
     list,
-    register
+    register,
+    read,
+    modify,
+    remove
 }
