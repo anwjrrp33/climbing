@@ -10,6 +10,7 @@ const search = async (req,res) => {
 
   condition = Object.values(body);
 
+  // 검색 조건 없을 때
   if(condition ? ' ' : '') {
     searchList = await Shop.findAll({limit : 30})
     return res.status(200).json({
@@ -18,6 +19,7 @@ const search = async (req,res) => {
     })
   }
   
+  //검색 조건 있을 때
   searchList = await Shop.findAll({
     where : {
       [Op.or] : [
