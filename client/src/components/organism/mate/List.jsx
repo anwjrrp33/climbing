@@ -1,14 +1,12 @@
 /* eslint-disable react/style-prop-object */
-import { Tabs } from 'flowbite-react';
 import { SubHeader } from 'components/atoms/common/SubHeader';
+import { Tab } from 'components/atoms/common/Tab';
 import { Search } from 'components/atoms/common/Search';
 import { Action } from 'components/atoms/common/Action';
 import { Card } from 'components/atoms/mate/Card';
-import { tabList } from 'utils/constant';
+import { mateList } from 'utils/mock/mateList';
 
 export const MateList = () => {
-  let cardList; // 메이트 리스트 글 정보
-
   return (
     <>
       <SubHeader
@@ -17,23 +15,12 @@ export const MateList = () => {
       />
 
       <section className='p-8'>
-        <div name='status'>
-          <Tabs.Group aria-label='Tabs with underline' style='underline'>
-            {tabList?.map((tab, id) => (
-              <Tabs.Item key={id} title={tab}></Tabs.Item>
-            ))}
-          </Tabs.Group>
-        </div>
+        <Tab />
+        <Search />
+        <Action />
 
-        <div name='list'>
-          <Search />
-          <Action />
-          <div name='card'>
-            {cardList?.map((card) => (
-              <Card key={card.id} card={card} />
-            ))}
-          </div>
-        </div>
+        {mateList.success &&
+          mateList.data.map((mate) => <Card key={mate.id} mateInfo={mate} />)}
       </section>
     </>
   );

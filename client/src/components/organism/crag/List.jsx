@@ -1,5 +1,5 @@
 import { Card } from 'components/atoms/crag/Card';
-import { cragList } from 'utils/mockData';
+import { cragList } from 'utils/mock/cragList';
 
 export const CragList = () => {
   return (
