@@ -1,4 +1,4 @@
-import { CragList } from 'components/organism/List/Crag';
+import { CragList } from 'components/organism/crag/List';
 
 const CragListPage = () => {
   return (

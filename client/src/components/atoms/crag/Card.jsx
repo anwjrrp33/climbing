@@ -1,3 +1,5 @@
+// 레퍼런스: hola 스터디
+
 import { useNavigate } from 'react-router-dom';
 
 export const Card = ({ cragInfo }) => {
