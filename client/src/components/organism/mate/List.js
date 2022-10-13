@@ -1,52 +1,38 @@
+/* eslint-disable react/style-prop-object */
+import { Tabs } from 'flowbite-react';
 import { SubHeader } from 'components/atoms/common/SubHeader';
+import { Search } from 'components/atoms/common/Search';
+import { Action } from 'components/atoms/common/Action';
+import { Card } from 'components/atoms/mate/Card';
+import { tabList } from 'utils/constant';
 
 export const MateList = () => {
+  let cardList; // 메이트 리스트 글 정보
+
   return (
     <>
       <SubHeader
-        title='트라이캐치를 함께 할 클루를 모집해보세요'
-        description='지역별 검색 / 댓글로 지원'
+        title='트라이캐치 함께 할 클루 모집!'
+        description='지역별로 검색하고 댓글로 지원하세요'
       />
 
       <section>
-        <div name='category'>
-          <div name='status'>
-            <ul>
-              <li>전체</li>
-              <li>모집중</li>
-              <li>모집완료</li>
-            </ul>
-            <div name='divider' />
-          </div>
-
-          <div name='search'>
-            <label for='search'>지역별/키워드로 검색해보세요</label>
-            <input
-              id='search'
-              placeholder='예) 서울시 용산구, 홀드, 스피드 등'
-            />
-          </div>
+        <div name='status' className='bg-slate-300'>
+          <Tabs.Group aria-label='Tabs with underline' style='underline'>
+            {tabList?.map((tab, id) => (
+              <Tabs.Item key={id} title={tab}></Tabs.Item>
+            ))}
+          </Tabs.Group>
         </div>
 
         <div name='post-list'>
-          <div name='action'>
-            <ul name='filter'>
-              <li>
-                <span>•</span>
-                최신순
-              </li>
-              <li>
-                <span>•</span>
-                댓글많은순
-              </li>
-            </ul>
-
-            <div name='create'>
-              <button>글쓰기</button>
-            </div>
+          <Search />
+          <Action />
+          <div name='card'>
+            {cardList?.map((card) => (
+              <Card key={card.id} card={card} />
+            ))}
           </div>
-
-          <div name='card'></div>
         </div>
       </section>
     </>
