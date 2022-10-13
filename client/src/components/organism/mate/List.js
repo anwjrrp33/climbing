@@ -46,7 +46,7 @@ export const MateList = () => {
             </div>
           </div>
 
-          <div name='post'></div>
+          <div name='card'></div>
         </div>
       </section>
     </>

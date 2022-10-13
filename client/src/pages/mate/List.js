@@ -1,4 +1,4 @@
-import { MateList } from 'components/organism/List/Mate';
+import { MateList } from 'components/organism/mate/List';
 
 const MateListPage = () => {
   return <MateList />;
