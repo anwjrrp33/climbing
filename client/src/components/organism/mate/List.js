@@ -12,12 +12,12 @@ export const MateList = () => {
   return (
     <>
       <SubHeader
-        title='트라이캐치 함께 할 클루 모집!'
-        description='지역별로 검색하고 댓글로 지원하세요'
+        title='트라이캐치 함께 할 클루를 모집해보세요'
+        description='지역별 검색 / 댓글로 지원'
       />
 
-      <section>
-        <div name='status' className='bg-slate-300'>
+      <section className='p-8'>
+        <div name='status'>
           <Tabs.Group aria-label='Tabs with underline' style='underline'>
             {tabList?.map((tab, id) => (
               <Tabs.Item key={id} title={tab}></Tabs.Item>
@@ -25,7 +25,7 @@ export const MateList = () => {
           </Tabs.Group>
         </div>
 
-        <div name='post-list'>
+        <div name='list'>
           <Search />
           <Action />
           <div name='card'>
