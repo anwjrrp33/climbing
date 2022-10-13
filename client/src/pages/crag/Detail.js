@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Post } from 'components/atoms/Post';
+import { Post } from 'components/atoms/crag/Post';
 
-const CragDetail = () => {
+const CragDetailPage = () => {
   // const { cragId } = useParams();
   const location = useLocation();
   const [post, setPost] = useState();
@@ -27,4 +27,4 @@ const CragDetail = () => {
   return <Post post={cragInfo} />;
 };
 
-export default CragDetail;
+export default CragDetailPage;

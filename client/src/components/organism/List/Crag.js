@@ -1,4 +1,4 @@
-import { Card } from 'components/atoms/Card';
+import { Card } from 'components/atoms/crag/Card';
 import { cragList } from 'utils/mockData';
 
 export const CragList = () => {
