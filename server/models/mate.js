@@ -31,5 +31,13 @@ module.exports = (sequelize, DataTypes) => {
             type: DataTypes.STRING,
             comment: "수정자"
         }
+    }, {
+        charset: "utf8",
+        collate: "utf8_general_ci",
+        tableName: "Mate",
+        timestamps: false,
+        paranoid: true
     });
+
+    return Mate;
 }
