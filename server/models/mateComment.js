@@ -1,15 +1,15 @@
 const Sequelize = require('sequelize');
 
 module.exports = (sequelize, DataTypes) => {
-    const Mate = sequelize.define('Mate', {
+    const MateComment = sequelize.define('MateComment', {
         id: {
             type: DataTypes.INTEGER,
             primaryKey: true,
             comment: "고유번호"
         },
-        title: {
-            type: DataTypes.STRING,
-            comment: "제목"
+        parentId: {
+            type: DataTypes.INTEGER,
+            comment: "부모 고유번호"
         },
         content: {
             type: DataTypes.STRING,
@@ -34,18 +34,19 @@ module.exports = (sequelize, DataTypes) => {
     }, {
         charset: "utf8",
         collate: "utf8_general_ci",
-        tableName: "Mate",
+        freezeTableName: true,
+        tableName: "MateComment",
         timestamps: false,
         paranoid: true
     });
 
-    Mate.associate = function (models) {
-        models.Mate.hasMany(models.MateComment, {
+    MateComment.associate = function (models) {
+        MateComment.belongsTo(models.Mate, {
             foreignKey: 'mateId',
-            sourceKey: "id",
+            targetKey: 'id',
             onDelete: 'cascade'
         });
-    };
+    }
 
-    return Mate;
+    return MateComment;
 }
