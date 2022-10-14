@@ -16,6 +16,9 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+db.Mate = require('./mate')(sequelize, Sequelize);
+db.MateComment = require('./mateComment')(sequelize, Sequelize);
+
 fs
   .readdirSync(__dirname)
   .filter(file => {
@@ -31,8 +34,6 @@ Object.keys(db).forEach(modelName => {
     db[modelName].associate(db);
   }
 });
-
-db.Mate = require('./mate')(sequelize, Sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
