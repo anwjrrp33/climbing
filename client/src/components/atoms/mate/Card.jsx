@@ -24,7 +24,7 @@ export const Card = ({ mateInfo }) => {
         console.log('메이트 클릭!');
         navigate(`/mate/${id}`, { state: { id, mateInfo } });
       }}
-      className='h-50 py-4 mb-8 border-y-2 border-gray-300 hover: cursor-pointer'
+      className='h-50 py-4 mb-8 border-t-2 border-gray-300 hover: cursor-pointer'
     >
       <div className='mt-2 mx-3'>
         <div className='w-fit text-xs text-center text-white px-2 py-1 mb-2 border-2 border-sky-500 bg-blue-500 rounded-md font-bold tracking-wider'>
