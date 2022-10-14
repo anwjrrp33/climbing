@@ -10,17 +10,19 @@ export const MateList = () => {
   return (
     <>
       <SubHeader
-        title='트라이캐치 함께 할 클루를 모집해보세요'
+        title='함께 트라이캐치할 클루를 모집해보세요'
         description='지역별 검색 / 댓글로 지원'
       />
 
-      <section className='p-8'>
+      <section className='p-9'>
         <Tab />
         <Search />
         <Action />
 
-        {mateList.success &&
-          mateList.data.map((mate) => <Card key={mate.id} mateInfo={mate} />)}
+        <div name='matelist' className='py-10'>
+          {mateList.success &&
+            mateList.data.map((mate) => <Card key={mate.id} mateInfo={mate} />)}
+        </div>
       </section>
     </>
   );
