@@ -2,7 +2,7 @@ import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
 import React from 'react';
 
-export default function MateCreate() {
+const MateCreate = () => {
   const editorRef = React.createRef();
 
   const handleClick = () => {
@@ -22,4 +22,6 @@ export default function MateCreate() {
       <button onClick={handleClick}>make bold</button>
     </>
   );
-}
+};
+
+export default MateCreate;

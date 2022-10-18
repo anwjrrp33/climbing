@@ -1,13 +1,8 @@
 import { Tag } from './Tag';
-import { SearchIcon } from 'assets/svg/SearchIcon';
+import { ReactComponent as SearchIcon } from 'assets/svg/SearchIcon.svg';
 
 export const Search = () => {
-  const regionList = [
-    '서울시 노원구',
-    '경기도 일산',
-    '서울시 강동구',
-    '경기도 수원',
-  ];
+  const regionList = ['노원구', '일산', '강동구', '수원'];
 
   return (
     <div className='mb-16'>

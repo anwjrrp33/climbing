@@ -1,4 +1,4 @@
-import { DeleteIcon } from 'assets/svg/DeleteIcon';
+import { ReactComponent as DeleteIcon } from 'assets/svg/DeleteIcon.svg';
 
 export const Tag = ({ title }) => {
   return (
