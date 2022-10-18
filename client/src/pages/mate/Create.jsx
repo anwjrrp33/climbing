@@ -1,6 +1,6 @@
+import React from 'react';
 import { Editor } from '@toast-ui/react-editor';
 import '@toast-ui/editor/dist/toastui-editor.css';
-import React from 'react';
 
 const MateCreate = () => {
   const editorRef = React.createRef();
@@ -12,11 +12,18 @@ const MateCreate = () => {
   return (
     <>
       <Editor
-        initialValue='hello react editor world!'
-        previewStyle='vertical'
+        placeholder='등록할 내용을 적어주세요..'
         height='600px'
         initialEditType='wysiwyg'
         useCommandShortcut={true}
+        hideModeSwitch={true}
+        autofocus={true}
+        toolbarItems={[
+          ['heading', 'bold', 'italic', 'strike'],
+          ['ul', 'ol'],
+          ['hr', 'quote'],
+          ['table', 'image', 'link'],
+        ]}
         ref={editorRef}
       />
       <button onClick={handleClick}>make bold</button>
