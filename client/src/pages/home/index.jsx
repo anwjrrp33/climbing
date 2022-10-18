@@ -25,7 +25,7 @@ const Main = () => {
           </button>
           <div
             ref={sliderBanner}
-            class='snap-x overflow-scroll scroll-smooth h-full flex items-center justify-start'
+            className='snap-x overflow-scroll scroll-smooth h-full flex items-center justify-start'
           >
             {images.map((e, i) => (
               <div
@@ -66,7 +66,7 @@ const Main = () => {
 
           <div
             ref={sliderCrag}
-            class='snap-x overflow-scroll scroll-smooth h-full flex items-center justify-start'
+            className='snap-x overflow-scroll scroll-smooth h-full flex items-center justify-start'
           >
             {mainCragList.data.map((crag, i) => (
               <div
@@ -103,7 +103,7 @@ const Main = () => {
 
         <div
           ref={sliderMate}
-          class='snap-x overflow-scroll scroll-smooth h-full flex items-center justify-start'
+          className='snap-x overflow-scroll scroll-smooth h-full flex items-center justify-start'
         >
           {mainMateList.data.map((mate, i) => (
             <div key={i} className='snap-start flex flex-shrink-0 w-auto mx-10'>
