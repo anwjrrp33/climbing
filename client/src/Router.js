@@ -4,6 +4,7 @@ import CragList from 'pages/crag/List';
 import CragDetail from 'pages/crag/Detail';
 import MateList from 'pages/mate/List';
 import MateDetail from 'pages/mate/Detail';
+import MateCreate from 'pages/mate/Create';
 import NotFound from 'pages/notfound';
 import { Layout } from 'components/Layout';
 
@@ -17,6 +18,7 @@ export const Router = () => {
           <Route path='/crag/:cragId' element={<CragDetail />} />
           <Route path='/mate' element={<MateList />} />
           <Route path='/mate/:mateId' element={<MateDetail />} />
+          <Route path='/mate/create' element={<MateCreate />} />
           <Route path='/*' element={<NotFound />} />
         </Routes>
       </Layout>
