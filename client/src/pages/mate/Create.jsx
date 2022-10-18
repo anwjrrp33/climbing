@@ -13,34 +13,34 @@ const MateCreate = () => {
   const handleSubmit = () => {
     // '에디터에서 블록 지정한 텍스트를 bold 지정하라'
     // editorRef.current.getInstance().exec('bold');
-    console.log(editorRef.current.getInstance());
+
+    console.log(content); // 서버에 넘길 작성 내용
   };
 
   const handleChange = () => {
-    console.log('handlechange 실행!');
-    // setContent();
+    const data = editorRef.current.getInstance().getMarkdown();
+    setContent(data);
   };
 
   return (
     <>
       <Editor
         placeholder='등록할 내용을 적어주세요..'
-        height='600px'
+        height='400px'
         initialEditType='wysiwyg'
         hideModeSwitch={true}
         useCommandShortcut={true}
         autofocus={true}
-        plugins={[colorSyntax]}
         toolbarItems={[
           ['heading', 'bold', 'italic', 'strike'],
           ['ul', 'ol'],
           ['hr', 'quote'],
           ['table', 'image', 'link'],
         ]}
-        ref={editorRef}
+        plugins={[colorSyntax]}
         language='ko-KR'
-        // onChange={() => { }}
-        events={{ change: () => handleChange }}
+        ref={editorRef}
+        onChange={handleChange}
       />
       <button onClick={handleSubmit}>등록</button>
     </>
