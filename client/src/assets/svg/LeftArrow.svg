@@ -1,5 +1,5 @@
 <svg
-  class='w-5 h-5 sm:w-6 sm:h-6 dark:text-gray-800'
+  className='w-5 h-5 sm:w-6 sm:h-6 dark:text-gray-800'
   fillRule='none'
   stroke='currentColor'
   viewBox='0 0 24 24'
