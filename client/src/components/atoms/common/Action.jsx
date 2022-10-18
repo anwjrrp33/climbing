@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { Button, Tabs } from 'flowbite-react';
 
 export const Action = () => {
@@ -11,7 +12,9 @@ export const Action = () => {
       </Tabs.Group>
 
       <div name='create' className='w-50'>
-        <Button size='lg'>글쓰기</Button>
+        <Button size='lg'>
+          <Link to='/mate/create'>글쓰기</Link>
+        </Button>
       </div>
     </div>
   );
