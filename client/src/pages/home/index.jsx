@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'components/atoms/crag/Card';
+import { Card } from 'components/crag/Card';
 import { mainCragList } from 'utils/mock/mainCragList';
 import { mainMateList } from 'utils/mock/mainMateList';
 import { ReactComponent as LeftArrow } from 'assets/svg/LeftArrow.svg';

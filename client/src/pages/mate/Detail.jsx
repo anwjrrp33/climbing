@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Post } from 'components/atoms/mate/Post';
+import { Post } from 'components/mate/Post';
 
 const MateDetailPage = () => {
   // const { cragId } = useParams();

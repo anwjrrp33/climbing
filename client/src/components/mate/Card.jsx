@@ -1,7 +1,7 @@
 // 레퍼런스: 넷플릭스 상세, 인프런 스터디, Okky 커뮤니티
 
 import { useNavigate } from 'react-router-dom';
-import { timeForToday } from 'utils';
+import { timeForToday } from 'utils/hooks/formatDate';
 
 export const Card = ({ mateInfo }) => {
   const navigate = useNavigate();
