@@ -1,33 +1,59 @@
-import { Tag } from './Tag';
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 import { ReactComponent as SearchIcon } from 'assets/svg/SearchIcon.svg';
 
 export const Search = () => {
-  const regionList = ['노원구', '일산', '강동구', '수원'];
+  const [inputData, setInputData] = useState();
+  const [searchData, setSearchData] = useState();
+
+  useEffect(() => {
+    (async () => {
+      const { success, data } = await axios.get('/search');
+      if (success) setSearchData(data);
+    })();
+  }, []);
+
+  const handleSubmit = () => {
+    const filteredData = searchData?.filter(
+      ({ title, content, address }) =>
+        title.includes(inputData) ||
+        content.includes(inputData) ||
+        address.includes(inputData)
+    );
+
+    setInputData(filteredData);
+  };
+
+  const handleChange = (e) => {
+    const { value } = e.target;
+    setInputData(value);
+  };
+
+  const handleKeyUp = (e) => {
+    if (e.key === 'Enter') {
+      handleSubmit();
+    }
+  };
 
   return (
     <div className='mb-16'>
-      <form>
-        <div className='relative w-96 my-6'>
+      <form onSubmit={handleSubmit}>
+        <div className='relative w-full my-6'>
           <input
-            className='w-full h-10 rounded-md px-3 ring-2 ring-gray-300 active:outline-none focus:outline-none focus:ring-blue-300'
+            value={inputData}
+            className='w-full h-16 rounded-2xl px-3 ring-2 ring-gray-300 active:outline-none focus:outline-none focus:ring-blue-300'
             placeholder='지역별/키워드로 검색해보세요!'
+            onChange={handleChange}
+            onKeyUp={handleKeyUp}
           />
-          <div className='absolute top-2 right-2 cursor-pointer'>
+          <div
+            className='absolute top-5 right-5 cursor-pointer'
+            onClick={handleSubmit}
+          >
             <SearchIcon />
           </div>
         </div>
-
-        {/* 검색 버튼(숨겨져 있음) - 엔터 치면 검색 실행 */}
-        <button className='hidden' type='submit' onKeyDown={() => {}}>
-          검색
-        </button>
       </form>
-
-      <div className='flex space-x-3'>
-        {regionList?.map((region, id) => (
-          <Tag key={id} title={region} />
-        ))}
-      </div>
     </div>
   );
 };
