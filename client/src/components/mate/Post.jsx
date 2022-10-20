@@ -1,7 +1,7 @@
 // 레퍼런스: 당근마켓 동네생활 (웹뷰)
 
 import { Comment } from '../common/Comment';
-import { timeForToday } from 'utils';
+import { timeForToday } from 'utils/hooks/formatDate';
 
 export const Post = ({ post }) => {
   const {
