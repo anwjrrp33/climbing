@@ -40,11 +40,11 @@ export const Post = ({ post }) => {
       <div name='divider' className='h-1 bg-slate-300 mb-8'></div>
 
       <div name='comments'>
-        <div name='number'>
+        <div name='count' className='mb-4'>
           총 <span className='font-semibold'>{comments.length}</span>개의 댓글
         </div>
-        {comments.map((comment) => (
-          <Comment comment={comment} />
+        {comments.map((comment, id) => (
+          <Comment key={id} comment={comment} />
         ))}
       </div>
     </div>
