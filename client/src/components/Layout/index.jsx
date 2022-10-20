@@ -4,7 +4,7 @@ export const Layout = ({ children }) => {
   return (
     <>
       <Header />
-      <div className='min-h-screen bg-slate-200'>{children}</div>
+      <div className='min-h-screen bg-slate-100'>{children}</div>
     </>
   );
 };
