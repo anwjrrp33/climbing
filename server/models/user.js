@@ -4,19 +4,18 @@ module.exports = (sequelize, DataTypes) => {
     var User = sequelize.define("User", {
       id: {
         type: DataTypes.INTEGER,
-        defaultValue: DataTypes.INTEGER,
         primaryKey: true,
-        comment: "고유번호 UUID",
+        comment: "고유번호",
       },
       email: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING,
         validate: {
           isEmail: true,
         },
         comment: "이메일",
       },
       nickname: {
-        type: DataTypes.STRING(100),
+        type: DataTypes.STRING,
         comment: "이름",
       }
     }, {

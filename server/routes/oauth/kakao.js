@@ -1,6 +1,6 @@
 const axios = require("axios");
 const user = require("../user/user");
-const sequelize = require("sequelize");
+const jwt = require("../middleware/jwt");
 
 async function redirect(req, res, next) {
     const url = "https://kauth.kakao.com/oauth/authorize";
@@ -15,7 +15,6 @@ async function redirect(req, res, next) {
 }
 
 async function token(req, res, next) {
-    console.log(req.query.code);
     const url = "https://kauth.kakao.com/oauth/token";
     const config = {
         client_id: "f3fe0df0786221c26b21a278c23eb7f5",
@@ -45,6 +44,22 @@ async function token(req, res, next) {
         email: userData.kakao_account.email,
         nickname: userData.properties.nickname
     });
+
+    const token = await jwt.createToken({
+        email: userData.kakao_account.email,
+        nickname: userData.properties.nickname
+    });
+
+    const refreshToken = await jwt.createRefreshToken({
+        email: userData.kakao_account.email,
+        nickname: userData.properties.nickname
+    });
+    
+    if (token && refreshToken) {
+        res.header('access-token', token);
+        res.cookie('refresh-token', refreshToken);
+        res.redirect("http://localhost:5000/mate");
+    }
 }
 
 module.exports = {
