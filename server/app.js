@@ -4,6 +4,9 @@ const express = require('express');
 const app = express();
 const port = process.env.PORT;
 
+
+
+
 var { sequelize } = require('./models/index')
 // 기존 테이블 삭제 후 생성
 // 서버 실행시 MYSQL과 연결

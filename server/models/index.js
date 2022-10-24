@@ -16,6 +16,7 @@ if (config.use_env_variable) {
   sequelize = new Sequelize(config.database, config.username, config.password, config);
 }
 
+db.Shop = require('./shop')(sequelize, Sequelize);
 db.Mate = require('./mate')(sequelize, Sequelize);
 db.MateComment = require('./mateComment')(sequelize, Sequelize);
 
