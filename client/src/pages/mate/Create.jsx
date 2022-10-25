@@ -1,14 +1,14 @@
-import React, { useState } from 'react';
+import { useState, createRef } from 'react';
 import { Editor } from '@toast-ui/react-editor';
-import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/i18n/ko-kr';
+import colorSyntax from '@toast-ui/editor-plugin-color-syntax';
 import 'tui-color-picker/dist/tui-color-picker.css';
 import '@toast-ui/editor-plugin-color-syntax/dist/toastui-editor-plugin-color-syntax.css';
-import '@toast-ui/editor/dist/i18n/ko-kr';
 
 const MateCreate = () => {
   const [content, setContent] = useState();
-  const editorRef = React.createRef();
+  const editorRef = createRef();
 
   const handleSubmit = () => {
     // '에디터에서 블록 지정한 텍스트를 bold 지정하라'
@@ -25,6 +25,7 @@ const MateCreate = () => {
   return (
     <>
       <Editor
+        ref={editorRef}
         placeholder='등록할 내용을 적어주세요..'
         height='400px'
         initialEditType='wysiwyg'
@@ -39,7 +40,6 @@ const MateCreate = () => {
         ]}
         plugins={[colorSyntax]}
         language='ko-KR'
-        ref={editorRef}
         onChange={handleChange}
       />
       <button onClick={handleSubmit}>등록</button>

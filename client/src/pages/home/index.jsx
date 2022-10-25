@@ -1,7 +1,6 @@
 import { useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Card } from 'components/atoms/crag/Card';
-// import { meTaCard } from "components/atoms/mate/Card";
+import { Card } from 'components/crag/Card';
 import { mainCragList } from 'utils/mock/mainCragList';
 import { mainMateList } from 'utils/mock/mainMateList';
 import { ReactComponent as LeftArrow } from 'assets/svg/LeftArrow.svg';
@@ -18,7 +17,7 @@ const Main = () => {
       <div className='mx-30'>
         <div className='flex items-center justify-center w-full h-full'>
           <button
-            className='bg-gray-500 '
+            className='bg-gray-500'
             onClick={() => (sliderBanner.current.scrollLeft -= 1400)}
           >
             <LeftArrow />
@@ -41,7 +40,7 @@ const Main = () => {
             ))}
           </div>
           <button
-            className='bg-gray-500 '
+            className='bg-gray-500'
             onClick={() => (sliderBanner.current.scrollLeft += 1400)}
           >
             <RightArrow />
@@ -58,7 +57,7 @@ const Main = () => {
       <div className='mx-30'>
         <div className='flex items-center justify-center w-full h-full'>
           <button
-            className='bg-gray-500 '
+            className='bg-gray-500'
             onClick={() => (sliderCrag.current.scrollLeft -= 400)}
           >
             <LeftArrow />
@@ -79,7 +78,7 @@ const Main = () => {
           </div>
 
           <button
-            className='bg-gray-500 '
+            className='bg-gray-500'
             onClick={() => (sliderCrag.current.scrollLeft += 400)}
           >
             <RightArrow />
@@ -95,7 +94,7 @@ const Main = () => {
 
       <div className='flex items-center justify-center w-full h-full mb-8'>
         <button
-          className='bg-gray-500 '
+          className='bg-gray-500'
           onClick={() => (sliderMate.current.scrollLeft -= 400)}
         >
           <LeftArrow />
@@ -112,7 +111,7 @@ const Main = () => {
           ))}
         </div>
         <button
-          className='bg-gray-500 '
+          className='bg-gray-500'
           onClick={() => (sliderMate.current.scrollLeft += 400)}
         >
           <RightArrow />

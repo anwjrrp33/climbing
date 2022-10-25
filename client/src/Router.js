@@ -6,7 +6,7 @@ import MateList from 'pages/mate/List';
 import MateDetail from 'pages/mate/Detail';
 import MateCreate from 'pages/mate/Create';
 import NotFound from 'pages/notfound';
-import { Layout } from 'components/Layout';
+import { Layout } from 'components/layout';
 
 export const Router = () => {
   return (

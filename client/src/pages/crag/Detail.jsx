@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useParams } from 'react-router-dom';
 import axios from 'axios';
-import { Post } from 'components/atoms/crag/Post';
+import { Post } from 'components/crag/Post';
 
 const CragDetailPage = () => {
   // const { cragId } = useParams();
@@ -10,19 +10,20 @@ const CragDetailPage = () => {
 
   const { id, cragInfo } = location.state;
 
-  // useEffect(() => {
-  //   axios
-  //     .get() // 백엔드 url
-  //     .then(({ success, data }) => {
-  //       console.log(data);
-  //       if (success === true) {
-  //         console.log(data.list.filter(({ selectedId }) => selectedId === id));
+  useEffect(() => {
+    axios
+      .get() // 백엔드 url
+      .then(({ success, data }) => {
+        console.log(data);
 
-  //         setPost(data.list.filter(({ selectedId }) => selectedId === id)[0]);
-  //       }
-  //     })
-  //     .catch((err) => console.log(err));
-  // }, [id]);
+        if (success) {
+          console.log(data.list.filter(({ selectedId }) => selectedId === id));
+
+          setPost(data.list.filter(({ selectedId }) => selectedId === id)[0]);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, [id]);
 
   return <Post post={cragInfo} />;
 };
