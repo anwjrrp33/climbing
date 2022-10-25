@@ -4,12 +4,13 @@ const SECRET_KEY = process.env.SECRET_KEY;
 const { User } = require('../../models');
 
 async function createToken(user) {
-    const findUser = User.findOne({
+    const findUser = await User.findOne({
         where: { email: user.email }
     });
 
     if (findUser) {
         const token = jwt.sign({
+            id: findUser.id,
             email: findUser.email
         }, SECRET_KEY, {
             expiresIn: '1h'
@@ -20,12 +21,13 @@ async function createToken(user) {
 }
 
 async function createRefreshToken(user) {
-    const findUser = User.findOne({
+    const findUser = await User.findOne({
         where: { email: user.email }
     });
 
     if (findUser) {
         const token = jwt.sign({
+            id: findUser.id,
             email: findUser.email
         }, SECRET_KEY, {
             expiresIn: '14d'
@@ -35,7 +37,24 @@ async function createRefreshToken(user) {
     }
 }
 
+async function verifyToken(token) {
+    try {
+        const decode = jwt.verify(token, process.env.SECRET_KEY);
+        return {
+            success: true,
+            id: decode.id,
+            email: decode.email
+        };
+    } catch (err) {
+        return { 
+            success: false,
+            message: err.message
+        }
+    }
+}
+
 module.exports = {
     createToken,
-    createRefreshToken
+    createRefreshToken,
+    verifyToken
 }

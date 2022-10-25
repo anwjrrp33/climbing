@@ -1,3 +1,4 @@
+require('dotenv').config();
 const axios = require("axios");
 const user = require("../user/user");
 const jwt = require("../middleware/jwt");
@@ -5,7 +6,7 @@ const jwt = require("../middleware/jwt");
 async function redirect(req, res, next) {
     const url = "https://kauth.kakao.com/oauth/authorize";
     const config = {
-      client_id: "f3fe0df0786221c26b21a278c23eb7f5",
+      client_id: process.env.CLIENT_ID,
       redirect_uri: "http://localhost:5000/oauth/kakao/token",
       response_type: "code",
     };
@@ -17,7 +18,7 @@ async function redirect(req, res, next) {
 async function token(req, res, next) {
     const url = "https://kauth.kakao.com/oauth/token";
     const config = {
-        client_id: "f3fe0df0786221c26b21a278c23eb7f5",
+        client_id: process.env.CLIENT_ID,
         grant_type: "authorization_code",
         redirect_uri: "http://localhost:5000/oauth/kakao/token",
         code: req.query.code,
@@ -54,6 +55,9 @@ async function token(req, res, next) {
         email: userData.kakao_account.email,
         nickname: userData.properties.nickname
     });
+    
+    console.log("access-token: " + token);
+    console.log("refresh-token: " + refreshToken);
     
     if (token && refreshToken) {
         res.header('access-token', token);
