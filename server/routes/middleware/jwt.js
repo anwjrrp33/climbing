@@ -28,7 +28,8 @@ async function createRefreshToken(user) {
     if (findUser) {
         const token = jwt.sign({
             id: findUser.id,
-            email: findUser.email
+            email: findUser.email,
+            "access-token": await createToken(user)
         }, SECRET_KEY, {
             expiresIn: '14d'
         });

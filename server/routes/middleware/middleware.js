@@ -4,17 +4,28 @@ const jwt = require("./jwt");
 
 module.exports = async (req, res, next) => {
     const accessToken = req.headers["access-token"];
-    const verify = await jwt.verifyToken(accessToken);
+    const refreshToken = req.cookies["refresh-token"];
 
-    if (verify.success) {
-        if(req.method != "GET") {
-            console.log(verify.id);
-            req.body.registerId = verify.id;
-            req.body.modifyId = verify.id;
+    const accessVerify = await jwt.verifyToken(accessToken);
+    if (accessVerify.success) {
+        if (req.method != "GET") {
+            req.body.registerId = accessVerify.id;
+            req.body.modifyId = accessVerify.id;
         }
         next();
         return;
     }
 
-    return res.status(400).json(verify);
+    const refreshVerify = await jwt.verifyToken(refreshToken);
+    if (refreshVerify.success) {
+        res.header('access-token', refreshVerify["access-token"]);
+        if (req.method != "GET") {
+            req.body.registerId = refreshVerify.id;
+            req.body.modifyId = refreshVerify.id;
+        }
+        next();
+        return;
+    }
+
+    return res.status(400).json(accessToken);
 }

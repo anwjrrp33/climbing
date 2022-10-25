@@ -15,8 +15,9 @@ sequelize.sync({ force: false }) // 서버 실행시마다 테이블을 재생�
     console.error(err);
   });
 
-
+const cookieParser = require("cookie-parser");
 app.use(express.json());
+app.use(cookieParser());
 
 //모든 router 
 const mainRouter = require('./routes')
